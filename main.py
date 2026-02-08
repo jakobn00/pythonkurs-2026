@@ -186,17 +186,22 @@ print(f"{arg=:.2f} degrees, {abs=:.2f}")
 
 # %% 2.2.1
 
+
 def linspace(a, b, N=100):
     step = (b - a) / (N - 1)
     points = [a + i * step for i in range(N)]
     return points
 
+
 print(linspace(0.1, 10))
 
 # %% 2.3.2
 
-x = lambda a, b, c: ( -b/(2*a) - math.sqrt((b/(2*a)) ** 2 - c/a), -b/(2*a) + math.sqrt((b/(2*a)) ** 2 - c/a) )
-print(x(1,2,0))
+x = lambda a, b, c: (
+    -b / (2 * a) - math.sqrt((b / (2 * a)) ** 2 - c / a),
+    -b / (2 * a) + math.sqrt((b / (2 * a)) ** 2 - c / a),
+)
+print(x(1, 2, 0))
 
 # %% 2.4.1
 """
@@ -220,41 +225,15 @@ name_map = {
 while True:
     human = _map[input("Choose Rock (r), Paper (p) or Scissors (s): ")]
     computer = random.randint(1, 3)
-    print(f"""
+    print(
+        f"""
     You chose {name_map[human]}.
     The computer chose {name_map[computer]}.
-    """)
+    """
+    )
     if human == computer:
         print("It's a tie!")
-    elif (human - computer) in (1,-2):
+    elif (human - computer) in (1, -2):
         print("You won!")
     else:
         print("You lost!")
-
-# %% 2.5.2
-
-def count_word(file_name, target_word):
-    with open(file_name, "r") as f:
-        text = f.read().replace("\n", " ")
-
-    # Create a list with the words
-    alpha_chars = []
-    for letter in text:
-        if (letter.isalpha() or letter in (" ")):
-            alpha_chars.append(letter.lower()) 
-    text = "".join(alpha_chars)
-    words = text.split(" ")
-    
-    # Count words
-    count = 0
-    target_word = target_word.lower()
-    for word in words:
-        if word == target_word:
-            count += 1
-    return count
-
-num_occurences = count_word("story.txt", "the")
-print(num_occurences)
-
-# %% 
-x = 10
