@@ -145,6 +145,13 @@ divisible_by = [
 ]
 print(divisible_by)
 
+# %% 1.8.3
+
+n = int(input("n: "))
+l = [[1 if j in (i, n - 1 - i) else 0 for j in range(n)] for i in range(n)]
+for row in l:
+    print(row)
+
 # %% 1.9.2
 
 l = ["apple", "pear", "banana"]

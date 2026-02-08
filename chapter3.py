@@ -1,3 +1,39 @@
+# %% 3.1.1
+import numpy as np
+
+a, b, N = 12, 18, 200
+points = np.linspace(a, b, N)
+
+even_idx = np.arange(start=0, stop=N, step=2)
+even_sum = np.sum(points[even_idx])
+print(f"{even_sum=:.2f}")
+
+odd_idx = np.arange(start=1, stop=N + 1, step=2)
+odd_sum = np.sum(points[odd_idx])
+print(f"{odd_sum=:.2f}")
+
+div_by_10_idx = np.arange(start=0, stop=N, step=10)
+div_by_10_sum = np.sum(points[div_by_10_idx])
+print(f"{div_by_10_sum=:.2f}")
+
+special_idx = np.array([2, 5, 19, 92])
+special_sum = np.sum(points[special_idx])
+print(f"{special_sum=:.2f}")
+
+# %% 3.2.1
+
+size = 4
+A = np.random.rand(size, size)
+B = np.random.rand(size, size)
+
+C = np.zeros((2 * size, 2 * size))
+C[0:size, 0:size] = A
+C[size : 2 * size, size : 2 * size] = A
+C[size : 2 * size, 0:size] = B
+C[0:size, size : 2 * size] = B
+
+print(C)
+
 # %% 3.3.1
 import matplotlib.pyplot as plt
 
