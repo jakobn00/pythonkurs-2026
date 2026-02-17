@@ -1,4 +1,5 @@
 # %% 1.1.1
+# x^2 + 2x + 0 = (x+1)^2 - 1
 import math
 
 a = int(input("a: "))
@@ -62,7 +63,7 @@ print(f"medelvärde: {mean}")
 print(f"minsta tal: {min(numbers)}")
 print(f"största tal: {max(numbers)}")
 
-# %% 1.3.1
+# %% 1.3.2 - objekt och referenser
 
 x = [1, 2]
 y = [1, 2]
@@ -79,9 +80,10 @@ oldest_age = 0
 print("Stop the program entering no age")
 while True:
     name = input("Name: ")
-    age = int(input("age: "))
+    age = input("age: ")
     if age == "":
         break
+    age = int(age)
     if age > oldest_age:
         oldest_age = age
         oldest_person = name
@@ -92,12 +94,12 @@ while True:
 
 # %% 1.5.1
 
-num = 20
+num = 150
 for i in range(1, num + 1):
     if num % i == 0:
         print(i)
 
-# %% 1.6.1
+# %% 1.6.1 linspace
 a = int(input("a: "))
 b = int(input("b: "))
 N = int(input("N: "))
@@ -106,36 +108,36 @@ step = (b - a) / (N - 1)
 points = [a + i * step for i in range(N)]
 print(points)
 
-# %% 1.7-1
+# %% 1.7.1 - operationer på matriser
 
 A = eval(input("Enter matrix A: "))
 B = eval(input("Enter matrix B: "))
 
 
 if (len(A) == len(B)) and (len(A[0]) == len(B[0])):
-    op = input("S for sum, s for subtract, m for elementwise multiplication: ")
-    m = len(A)
-    n = len(A[0])
-    C = [[0 for _ in range(n)] for _ in range(m)]
-    for i in range(m):
-        for j in range(n):
-            print(i, j)
-            C[i][j] = A[i][j] + B[i][j]
-            match op:
-                case "S":
-                    C[i][j] = A[i][j] + B[i][j]
-                case "s":
-                    C[i][j] = A[i][j] - B[i][j]
-                case "m":
-                    C[i][j] = A[i][j] * B[i][j]
-                case _:
-                    print("Invalid input")
-                    break
-    print(C)
+    while not input():
+        op = input("S for sum, s for subtract, m for elementwise multiplication: ")
+        m = len(A)
+        n = len(A[0])
+        C = [[0 for _ in range(n)] for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                C[i][j] = A[i][j] + B[i][j]
+                match op:
+                    case "S":
+                        C[i][j] = A[i][j] + B[i][j]
+                    case "s":
+                        C[i][j] = A[i][j] - B[i][j]
+                    case "m":
+                        C[i][j] = A[i][j] * B[i][j]
+                    case _:
+                        print("Invalid input")
+                        break
+        print(C)
 else:
     print("Matrix dimensions do not agree")
 
-# %% 1.8.1
+# %% 1.8.1 - tal som är delbara med 7, 11 eller 13
 import random
 
 
