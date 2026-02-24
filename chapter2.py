@@ -1,26 +1,25 @@
 # %% 2.1.2
 import math
 
-
 def polar_complex(c: complex):
     arg = math.atan2(c.imag, c.real)
     abs = math.sqrt(c.real**2 + c.imag**2)
     return arg / (2 * math.pi) * 360, abs
 
 
-c = complex(1, math.sqrt(3))
+# c = complex(1, math.sqrt(3))
+c = complex(2, -2)
 arg, abs = polar_complex(c)
 print(f"{arg=:.2f} degrees, {abs=:.2f}")
 
-# %% 2.2.1
+# %% 2.2.3
 
 def linspace(a, b, N=100):
     step = (b - a) / (N - 1)
     points = [a + i * step for i in range(N)]
     return points
 
-
-print(linspace(0.1, 10))
+print(len(linspace(0.1, 10)))
 
 # %% 2.3.2
 
@@ -30,7 +29,7 @@ x = lambda a, b, c: (
 )
 print(x(1, 2, 0))
 
-# %% 2.4.1
+# %% 2.4.2
 import random
 """
 Rock (r), Paper (p), Scissors (s)

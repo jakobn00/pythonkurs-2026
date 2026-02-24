@@ -137,6 +137,7 @@ if (len(A) == len(B)) and (len(A[0]) == len(B[0])):
 else:
     print("Matrix dimensions do not agree")
 
+# Redovisning 2:
 # %% 1.8.1 - tal som är delbara med 7, 11 eller 13
 import random
 
