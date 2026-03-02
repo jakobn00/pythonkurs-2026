@@ -4,14 +4,17 @@ import numpy as np
 a, b, N = 12, 18, 200
 points = np.linspace(a, b, N)
 
+# Ej inkluderat jämt index 200
 even_idx = np.arange(start=0, stop=N, step=2)
 even_sum = np.sum(points[even_idx])
 print(f"{even_sum=:.2f}")
 
-odd_idx = np.arange(start=1, stop=N + 1, step=2)
+# Inkluderat udda index 199
+odd_idx = np.arange(start=1, stop=N, step=2)
 odd_sum = np.sum(points[odd_idx])
 print(f"{odd_sum=:.2f}")
 
+# Ej inkluderat delbart-med-10 index 200
 div_by_10_idx = np.arange(start=0, stop=N, step=10)
 div_by_10_sum = np.sum(points[div_by_10_idx])
 print(f"{div_by_10_sum=:.2f}")
@@ -22,7 +25,7 @@ print(f"{special_sum=:.2f}")
 
 # %% 3.2.1
 
-size = 4
+size = 3
 A = np.random.rand(size, size)
 B = np.random.rand(size, size)
 

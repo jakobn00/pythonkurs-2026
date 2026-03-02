@@ -65,6 +65,8 @@ while True:
     else:
         print("You lost!")
 
+##################### Labb 4 #################################
+
 # %% 2.5.2
 
 def count_word(file_name, target_word):
