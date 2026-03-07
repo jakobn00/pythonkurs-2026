@@ -90,7 +90,7 @@ def count_word(file_name, target_word):
     return count
 
 
-num_occurences = count_word("story.txt", "the")
+num_occurences = count_word("story.txt", "cut")
 print(num_occurences)
 
 # %% 2.6.3
@@ -156,9 +156,12 @@ def decode(morse_file_name, decoded_file_name):
     out = []
     for m in morse:
         c = morse_to_text[m].lower()
+
+        # Capital letter after the characters below
         if len(out) >= 2:
             if out[-2] in [".", ",", "?", "!"]:
                 c = c.upper()
+        # Capital first character
         elif len(out) == 0:
             c = c.upper()
         out.append(c)

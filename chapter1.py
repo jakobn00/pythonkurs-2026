@@ -39,6 +39,7 @@ row = "-" * 31
 print(row)
 print(
     f'| {first_name_str}{" " * (width - len(first_name_str))} | {first_name}{" " * (width - len(first_name))} |'
+
 )
 print(row)
 print(
@@ -63,6 +64,20 @@ print(f"medelvärde: {mean}")
 print(f"minsta tal: {min(numbers)}")
 print(f"största tal: {max(numbers)}")
 
+# %% 1.2.2 # TODO: redovisa
+"""Antal siffor (a) och antal bokstäver (b) i inmatad sträng"""
+
+s = input("Ange en sträng: ")
+number_count = 0
+letter_count = 0
+for c in s:
+    if c.isdigit(): number_count += 1
+    if c.isalpha(): letter_count += 1
+
+print(f"Angiven sträng: '{s}'")
+print(f"{number_count=}")
+print(f"{letter_count=}")
+    
 # %% 1.3.2 - objekt och referenser
 
 x = [1, 2]

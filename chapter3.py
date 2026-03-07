@@ -23,11 +23,13 @@ special_idx = np.array([2, 5, 19, 92])
 special_sum = np.sum(points[special_idx])
 print(f"{special_sum=:.2f}")
 
-# %% 3.2.1
+# %% 3.2.1 TODO: Redovisa
 
-size = 3
+size = 4
 A = np.random.rand(size, size)
+A = np.round(A, 2)
 B = np.random.rand(size, size)
+B = np.round(B, 2)
 
 C = np.zeros((2 * size, 2 * size))
 C[0:size, 0:size] = A
@@ -35,7 +37,16 @@ C[size : 2 * size, size : 2 * size] = A
 C[size : 2 * size, 0:size] = B
 C[0:size, size : 2 * size] = B
 
-print(C)
+diag = np.zeros((size, 2))
+for i in range(size):
+    for j in range(2):
+        diag[i, j] = C[i*2 + j, i*2 + j]
+
+print(f"{A=}")
+print(f"{B=}")
+print(f"{C=}")
+print(f"{diag=}")
+
 
 # %% 3.3.1
 import matplotlib.pyplot as plt
