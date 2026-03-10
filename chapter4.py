@@ -29,25 +29,64 @@ class Point:
         phi *= factor
         print(f"{theta=:.2f}, {phi=:.2f}")
 
-
 a = Point(1 / math.sqrt(2), 1 / math.sqrt(2), -1)
 a.print_spherical_degrees()
-
+print(a)
+print(a.distance())
 # %% 4.2.2
-
+# TODO: redovisa denna
 
 class Klass:
     def __init__(self, d):
         for k, v in d.items():
             setattr(self, k, v)
+    
+    def remove_attr(self, attr):
+        delattr(self, attr)
+    
+    def add_attr(self, attr, value):
+        if not hasattr(self, attr):
+            setattr(self, attr, value)
+    
+    def update_attr(self, attr, value):
+        if hasattr(self, attr):
+            setattr(self, attr, value)
+
+    def __str__(self):
+        d = self.__dict__
+        keys = (" " * 5).join(str(k) for k in d.keys())
+        base = " " * 10
+        keys = [str(k) + base[len(str(k)):] for k in d.keys()]
+        key_row = " | ".join(keys)
+        values = [str(k) + base[len(str(k)):] for k in d.values()]
+        value_row = " | ".join(values)
+        dashes = "-" * (13 * len(d))
+        out = f"""
+        {dashes}
+        | {key_row} |
+        {dashes}
+        | {value_row} |
+        {dashes}
+        """
+        return out
 
 
 d = {
-    "a": 1,
-    "b": 2,
+    "fruit": 1,
+    "book": 2,
+    "word": "mattress",
 }
 c = Klass(d)
-print(c.a, c.b)
+print(c)
+
+c.remove_attr("book")
+print(c)
+
+c.add_attr("sponge", "yellow")
+print(c)
+
+c.update_attr("fruit", "banana")
+print(c)
 
 # %% 4.3.3
 
@@ -101,6 +140,8 @@ def har_körkort(obj):
 p = Person("Jakob", "2000")
 b = Bilist("Jakob", "2000", "B")
 
+print(p)
+print(b)
 print(har_körkort(p))
 print(har_körkort(b))
 
